@@ -1,4 +1,4 @@
-package com.company;
+package com.company.sql;
 
 import java.sql.*;
 
@@ -32,6 +32,10 @@ public class Main {
             while(resultSet.next()) {
                 System.out.println(resultSet.getString("login"));
             }
+            preStm = connection.prepareStatement("UPDATE users SET login=? WHERE id=?;");
+            preStm.setString(1,"Krzysztof");
+            preStm.setInt(2, 3);
+            preStm.executeUpdate();
 
 
         } catch (SQLException e) {
